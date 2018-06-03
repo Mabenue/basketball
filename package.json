@@ -1,0 +1,15 @@
+{
+  "name": "basketball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Conway",
+  "license": "ISC",
+  "dependencies": {
+    "csvtojson": "^2.0.3",
+    "jasmine-node": "^1.14.5"
+  }
+}
