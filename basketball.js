@@ -1,9 +1,11 @@
 'use strict';
 
 function sortByPPGDesc(objectArray){
-  return objectArray.sort(function (a, b) {
+  let sorted = objectArray.sort(function (a, b) {
     return b.PPG - a.PPG;
   })
+
+  return {Players: sorted};
 }
 
 function calcAveragePPG(objectArray){
@@ -15,11 +17,11 @@ function calcAveragePPG(objectArray){
 
   let avg = sum / objectArray.length;
 
-  return avg.toFixed(2);
+  return {AveragePPG: avg.toFixed(2)};
 }
 
 function findPlayerRank(objectArray){
-  objectArray = sortByPPGDesc(objectArray);
+  objectArray = sortByPPGDesc(objectArray).Players;
 
   let leaders = [];
 
@@ -27,7 +29,7 @@ function findPlayerRank(objectArray){
   leaders[1] = {Silver: objectArray[1].Name, PPG: objectArray[1].PPG}
   leaders[2] = {Bronze: objectArray[2].Name, PPG: objectArray[2].PPG}
 
-  return leaders;
+  return {Leaders: leaders};
 }
 
 function findNumberInEachPostion(objectArray){
@@ -40,9 +42,10 @@ function findNumberInEachPostion(objectArray){
     return a;
   }, {});
 
-  return counts;
+  return {"": counts};
 }
 
+// gives different result to example json, suspect constant used for convesion differ
 function findAverageHeightInCM(objectArray){
   let sum = 0;
 
@@ -51,7 +54,7 @@ function findAverageHeightInCM(objectArray){
     sum += ((Number(heightPart[0]) * 12) + Number(heightPart[2]));
   }
 
-  return (sum / 0.39370 / objectArray.length).toFixed(1) + " cm";
+  return {AverageHeight: (sum / 0.39370 / objectArray.length).toFixed(1) + " cm"}; 
 }
 
 module.exports = {

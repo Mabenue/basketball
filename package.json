@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "./node_modules/.bin/jasmine-node spec"
   },
   "author": "Alex Conway",
   "license": "ISC",
